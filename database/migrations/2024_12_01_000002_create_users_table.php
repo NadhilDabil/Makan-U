@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->id('id_user'); // ID utama
             $table->unsignedBigInteger('id_role'); // Foreign key ke tabel roles
             $table->string('email', 100)->unique(); // Email unik

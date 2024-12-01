@@ -8,7 +8,7 @@ class CreatePostingsTable extends Migration
 {
     public function up()
     {
-        Schema::create('postings', function (Blueprint $table) {
+        Schema::create('posting', function (Blueprint $table) {
             $table->id('id_posting');
             $table->text('image_posting')->nullable();
             $table->unsignedBigInteger('id_toko');
@@ -17,7 +17,7 @@ class CreatePostingsTable extends Migration
             $table->text('caption')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_toko')->references('id_toko')->on('tokos')->onDelete('cascade');
+            $table->foreign('id_toko')->references('id_toko')->on('toko')->onDelete('cascade');
         });
     }
 

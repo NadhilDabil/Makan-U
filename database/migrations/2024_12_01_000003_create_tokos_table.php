@@ -8,7 +8,7 @@ class CreateTokosTable extends Migration
 {
     public function up()
     {
-        Schema::create('tokos', function (Blueprint $table) {
+        Schema::create('toko', function (Blueprint $table) {
             $table->id('id_toko'); // ID utama untuk tabel tokos
             $table->unsignedBigInteger('id_user'); // Foreign key manual
             $table->string('nama_toko', 100); // Nama toko
@@ -25,7 +25,7 @@ class CreateTokosTable extends Migration
             // Definisi relasi foreign key
             $table->foreign('id_user')
                   ->references('id_user')
-                  ->on('users')
+                  ->on('user')
                   ->onDelete('cascade'); // Hapus toko jika user dihapus
         });
     }

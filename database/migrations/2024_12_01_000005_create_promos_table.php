@@ -8,7 +8,7 @@ class CreatePromosTable extends Migration
 {
     public function up()
     {
-        Schema::create('promos', function (Blueprint $table) {
+        Schema::create('promo', function (Blueprint $table) {
             $table->id('id_promo');
             $table->text('Desk_promo');
             $table->date('jangka_waktu_mulai');
@@ -16,7 +16,7 @@ class CreatePromosTable extends Migration
             $table->unsignedBigInteger('id_toko');
             $table->timestamps();
 
-            $table->foreign('id_toko')->references('id_toko')->on('tokos')->onDelete('cascade');
+            $table->foreign('id_toko')->references('id_toko')->on('toko')->onDelete('cascade');
         });
     }
 
