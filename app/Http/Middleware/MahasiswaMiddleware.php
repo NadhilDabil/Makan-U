@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class MahasiswaMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,10 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (Auth::check() && Auth::user()->id_role == 2) {
+            dd("Anda Masuk Halaman Mahasiswa");
+            return $next($request);
+        }
+        abort(402);
     }
 }

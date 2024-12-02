@@ -15,7 +15,6 @@ class Role extends Model
     protected $fillable = [
         'id_role',
         'role',
-
     ];
 
     public function user(): HasOne

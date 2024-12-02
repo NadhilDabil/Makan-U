@@ -1,19 +1,16 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
-Route::get('/loginn', function () {
+Route::get('/login', function () {
     return view('login');
-})->middleware('admin')->name('loginn');
-
+})->name('login');
 
 
 Route::get('/register-view-mahasiswa', [AuthController::class, 'indexMahasiswa'])->name('view.register.mahasiswa');
@@ -25,11 +22,13 @@ Route::post('register-penjual', [AuthController::class, 'storePenjual'])->name('
 Route::get('/index', [AuthController::class, 'viewIndex'])->name('view.index');
 
 Route::post('/loginsubmit', [AuthController::class, 'login'])->name('login.submit');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::middleware(['mahasiswa'])->group(function () {
+    Route::get('/view-mahasiswa', [AuthController::class, 'viewMahasiswa'])->name('view.mahasiswa');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware(['penjual'])->group(function () {
+    Route::get('/view-penjual', [AuthController::class, 'viewPenjual'])->name('view.penjual');
+});

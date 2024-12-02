@@ -28,7 +28,7 @@
                 <input type="text" id="no_telp" name="no_telp" required>
 
                 <button type="submit" class="btn">Register</button>
-                <p><a href="{{route('loginn')}}">Kembali ke Login</a></p>
+                <p><a href="{{route('login')}}">Kembali ke Login</a></p>
             </form>
         </div>
     </div>

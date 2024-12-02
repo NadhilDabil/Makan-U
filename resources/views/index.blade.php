@@ -23,14 +23,14 @@
 
     <!-- Css Styles -->
 
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/elegant-icons.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
 </head>
 
 <body>
@@ -91,7 +91,11 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li><i class="fa fa-envelope"></i>
+                    @if (Auth::check())
+                        {{ Auth::user()->email }}
+                    @endif
+                </li>
                 <li>Free Shipping for all Order of $99</li>
             </ul>
         </div>
@@ -106,7 +110,11 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li><i class="fa fa-envelope"></i>
+                                    @if (Auth::check())
+                                        {{ Auth::user()->email }}
+                                    @endif
+                                </li>
                                 <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
@@ -124,16 +132,33 @@
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">Spanish</a></li>
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i>
                                 @if (Auth::check())
-                                {{ Auth::user()->username}}
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-user"></i> {{ Auth::user()->username }}
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">Edit Profile</a></li>
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    Logout
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @else
+                                    <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
                                 @endif
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -155,7 +180,7 @@
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./shoping-cart.html">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
@@ -180,6 +205,7 @@
             </div>
         </div>
     </header>
+
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -765,10 +791,19 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="{{asset('assets/img/payment-item.png')}}" alt=""></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i
+                                    class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                        <div class="footer__copyright__payment"><img src="{{ asset('assets/img/payment-item.png') }}"
+                                alt=""></div>
                     </div>
                 </div>
             </div>
@@ -777,14 +812,19 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.slicknav.js')}}"></script>
-    <script src="{{asset('assets/js/mixitup.min.js')}}"></script>
-    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('assets/js/mixitup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 
 
 

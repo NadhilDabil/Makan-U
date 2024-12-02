@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function viewIndex(){
+    public function viewIndex()
+    {
         return view('index');
-
     }
+
 
 
     public function indexMahasiswa()
@@ -41,10 +42,11 @@ class AuthController extends Controller
         $user->no_telp = $request->no_telp;
         $user->save();
 
-        return redirect()->route('loginn');
+        return redirect()->route('login');
     }
 
-    public function indexPenjual() {
+    public function indexPenjual()
+    {
         return view('register.register-penjual');
     }
 
@@ -67,50 +69,43 @@ class AuthController extends Controller
         $user->no_telp = $request->no_telp;
 
         $user->save();
-        return redirect()->route('loginn');
+        return redirect()->route('login');
     }
 
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $data = $request->only('email', 'password');
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
+            // dd(Auth::user());
+            // dd(session()->all());
             return redirect()->route('view.index');
-        }else{
+        } else {
             return redirect()->back()->with('error', 'GAGAL LOGIN');
         }
-
-
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function logout(Request $request)
     {
-        //
+        Auth::logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+
+    public function viewMahasiswa(){
+        return view('view-mahasiswa');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function viewPenjual(){
+        return view('view-Penjual');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //
