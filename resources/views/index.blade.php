@@ -1,3 +1,12 @@
+
+@if (Auth::check())
+    <p>User sudah login</p>
+    <p>{{ Auth::user()}}</p>
+@else
+    <p>Tidak ada user yang login</p>
+    <p>{{ Auth::user()}}
+@endif
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -120,7 +129,11 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="#"><i class="fa fa-user"></i>
+                                @if (Auth::check())
+                                {{ Auth::user()->username}}
+                                @endif
+                                </a>
                             </div>
                         </div>
                     </div>
