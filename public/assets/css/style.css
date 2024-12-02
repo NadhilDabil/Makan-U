@@ -3466,3 +3466,11 @@ ol {
 		font-size: 24px;
 	}
 }
+
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
