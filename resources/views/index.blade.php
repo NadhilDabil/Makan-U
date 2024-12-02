@@ -1,12 +1,3 @@
-
-@if (Auth::check())
-    <p>User sudah login</p>
-    <p>{{ Auth::user()}}</p>
-@else
-    <p>Tidak ada user yang login</p>
-    <p>{{ Auth::user()}}
-@endif
-
 <!DOCTYPE html>
 <html lang="zxx">
 
