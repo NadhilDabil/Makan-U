@@ -11,6 +11,22 @@ Route::get('/dash', function () {
     return view('dashboard');
 });
 
+Route::get('/role', function () {
+    return view('role');
+});
+
+Route::get('/login2', function () {
+    return view('login2');
+});
+
+Route::get('/reg2', function () {
+    return view('register-view-mahasiswa2');
+});
+
+Route::get('/reg3', function () {
+    return view('register-view-penjual2');
+});
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');

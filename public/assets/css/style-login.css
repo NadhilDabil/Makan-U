@@ -1,0 +1,104 @@
+body {
+background-image: url('/assets/img/bg/bg-login.jpeg');
+height: 100%;
+font-family: "Poppins", sans-serif;
+-webkit-font-smoothing: antialiased;
+margin: 0;
+overflow-y: hidden;
+}
+
+.layer {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255, 0.27); /* White background with 27% opacity */
+z-index: 10;
+padding-top: 20px;
+padding-bottom: 20px;
+overflow-y: auto;
+}
+
+
+.login{
+background-color: white;
+padding: 2rem;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+border-radius: 1rem;
+width: 25rem;
+height: auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.title__text{
+font-weight: 700;
+color: #0033FF;
+margin-bottom: 20px;
+font-family: "Poppins", sans-serif;
+font-style: normal;
+}
+.choose__role {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.choose__btn {
+    border-radius: 20rem;
+}
+.input__form {
+border: none;
+border-bottom: 2px solid #ccc;
+border-radius: 0;
+font-size: 1rem;
+padding: 10px;
+outline: none;
+transition: border-color 0.3s;
+}
+
+.input__form:focus {
+border-bottom: 2px solid #3363FF;
+outline: none;
+}
+
+.register__text {
+font-size: 12px;
+text-align: center;
+margin-top: 20px;
+font-size: 12px;
+margin-top: 20px;
+margin-left: 5px;
+}
+
+button {
+margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+.login {
+width: 100vw;
+height: 100vh;
+padding: 1.5rem;
+border-radius: 0.5rem;
+display: block;
+}
+.layer{
+    padding: 0;
+    overflow-y: auto;
+}
+.input__form {
+font-size: 0.9rem; /* Mengurangi ukuran font agar pas di layar kecil */
+padding: 8px;
+}
+
+.title__text {
+font-size: 1.5rem;
+margin-top: 50px;
+}
+
+.register__text {
+font-size: 10px;
+}
+}
