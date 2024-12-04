@@ -4,7 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TokoController;
 use Illuminate\Support\Facades\Route;
 
-
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('/role', function () {
     return view('role');
@@ -30,9 +32,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['mahasiswa'])->group(function () {
     Route::get('/view-mahasiswa', [AuthController::class, 'viewMahasiswa'])->name('view.mahasiswa');
-    Route::get('/', function () {
-        return view('index');
-    });
+
 });
 
 Route::middleware(['penjual'])->group(function () {

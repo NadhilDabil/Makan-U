@@ -23,13 +23,14 @@
                 <div class="title__text text-center">
                     <h2>REGISTER</h2>
                 </div>
-                <form>
-                    <x-input-field name="username" type="text" placeholder="Enter Your Name here" id="name" />
-                    <x-input-field name="mobile" type="number" placeholder="Enter Your Mobile Number" label='Mobile Number' />
-                    <x-input-field name="email" type="email" placeholder="Enter Your Email here" />
-                    <x-input-field name="password" type="password" placeholder="Please Enter Your Password here" />
-                    <x-input-field name="confirm" type="password" placeholder="Please Confirm Your Password" label='Confirm Password' />
-                    <x-input-field name="shopName" type="text" placeholder="Please Enter Your Shop Name here" label='Shop Name' />
+                <form action="{{route('register.submit.penjual')}}" method="POST">
+                    @csrf
+                    <x-input-field name="username" type="text" placeholder="Enter Your Name here" id="username" required />
+                    <x-input-field name="no_telp" type="number" placeholder="Enter Your Mobile Number" label='Mobile Number' required />
+                    <x-input-field name="email" type="email" placeholder="Enter Your Email here" required/>
+                    <x-input-field name="alamat" type="text" placeholder="Enter Your Adress here" required/>
+                    <x-input-field name="password" type="password" placeholder="Please Enter Your Password here" required/>
+                    <x-input-field name="confirm" type="password" placeholder="Please Confirm Your Password" label='Confirm Password' required />
 
                     <button type="submit" class="btn btn-primary w-100">Sign Up</button>
                 </form>
@@ -38,6 +39,20 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            // Ambil elemen password dan confirm password
+            const password = document.querySelector('input[name="password"]').value;
+            const confirmPassword = document.querySelector('input[name="confirm"]').value;
+
+            // Validasi apakah password dan confirm password cocok
+            if (password !== confirmPassword) {
+                e.preventDefault(); // Mencegah pengiriman form
+                alert('Password and Confirm Password do not match!');
+            }
+        });
+    </script>
 </body>
 
 </html>
