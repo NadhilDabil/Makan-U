@@ -21,17 +21,12 @@
         <div class="content__section d-flex justify-content-center align-items-center min-vh-100">
             <div class="login shadow-sm  bg-white">
                 <div class="title__text text-center">
-                    <h2>LOGIN</h2>
+                    <h2>Masuk Sebagai</h2>
                 </div>
-                <form action="{{route('login.submit')}}" method="POST">
-                    @csrf
-
-                    <x-input-field name="email" type="email" id="email" name="email"  placeholder="Enter Your Email here" required/>
-                    <x-input-field name="password" type="password" id="password" name="password"  placeholder="Please Enter Your Password here" required />
-
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
-                </form>
-                <p class="register__text">If you haven't registered yet? <a href="{{route('view.register')}}">Register Now</a></p>
+                <div class="choose__role">
+                    <button class="btn btn-warning choose__btn" onclick="window.location='{{ route('view.register.mahasiswa') }}'">Mahasiswa</button>
+                    <button class="btn btn-primary choose__btn" onclick="window.location='{{ route('view.register.penjual') }}'">Penjual</button>
+                </div>
             </div>
         </div>
     </div>
