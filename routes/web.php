@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TokoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,4 +32,14 @@ Route::middleware(['mahasiswa'])->group(function () {
 
 Route::middleware(['penjual'])->group(function () {
     Route::get('/view-penjual', [AuthController::class, 'viewPenjual'])->name('view.penjual');
+
+    Route::get('/form-toko', [TokoController::class, 'viewForm'])->name('view.form.penjual');
+    Route::post('/form-toko/submit', [TokoController::class, 'storeToko'])->name('submit.toko');
+    Route::get('/view.toko', [TokoController::class, 'viewToko'])->name('view.toko');
+
+    Route::get('/form-toko/edit', [TokoController::class, 'viewEditToko'])->name('view.edit.toko');
+    Route::match(['POST', 'PUT'], '/form-toko/submit', [TokoController::class, 'updateToko'])->name('update.toko');
+    Route::delete('/toko/delete/{id}', [TokoController::class, 'destroy'])->name('destroy.toko');
+
+
 });

@@ -17,7 +17,6 @@ class PenjualMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->id_role == 3) {
-            dd("Anda Masuk Ke dalam View Penjualan");
             return $next($request);
         }
         abort(401);
