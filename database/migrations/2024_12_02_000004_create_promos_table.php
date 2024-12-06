@@ -13,6 +13,7 @@ class CreatePromosTable extends Migration
             $table->text('Desk_promo');
             $table->date('jangka_waktu_mulai');
             $table->date('jangka_waktu_berhenti');
+            $table->text('caption');
             $table->unsignedBigInteger('id_toko');
             $table->timestamps();
 
