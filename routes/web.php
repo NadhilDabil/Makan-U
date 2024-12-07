@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TokoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TokoController;
 
 
 
@@ -10,10 +11,11 @@ Route::get('/role', function () {
     return view('role');
 });
 
-
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::resource('post', PostController::class);
 
 Route::get('/register-option', [AuthController::class, 'viewRegister'])->name('view.register');
 Route::get('/register-view-mahasiswa', [AuthController::class, 'indexMahasiswa'])->name('view.register.mahasiswa');
