@@ -53,7 +53,7 @@ class TokoController extends Controller
         $toko->lokasi_toko = $request->lokasi_toko;
 
         $toko->save();
-
+        
         return redirect()->route('view.toko');
     }
 

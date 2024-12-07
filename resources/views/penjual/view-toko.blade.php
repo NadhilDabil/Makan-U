@@ -118,8 +118,11 @@
         <a href="#" class="btn-delete" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </a>
+        <a href="{{route('view.promo')}}" class="btn-back">Lihat Promo Toko</a>
         <a href="/" class="btn-back">Kembali ke Beranda</a>
     </div>
+
+
 </body>
 
 </html>
