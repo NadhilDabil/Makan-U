@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style-footer.css') }}" type="text/css">
 
 </head>
 
@@ -30,84 +31,7 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
-        </div>
-        <div class="humberger__menu__profile">
-            <div class="d-flex align-items-center">
-                <div class="rounded-circle border d-flex justify-content-center align-items-center"
-                     style="width: 40px; height: 40px;">
-                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-                </div>
-                <p class="humberger__menu__profile__text ml-2 my-0"><a class="underline" href="#">Login</a> / <a class="underline" href="#">Sign Up</a></p>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-    </div>
-    <!-- Humberger End -->
-
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                            <li><a href="#"><i class="fa fa-user"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
+    <x-navbar />
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container-fluid">
@@ -178,51 +102,56 @@
                     <div class="col-lg-3">
                         <a href="#" class="categories__item">
                             <div class="">
-                                <img class="image__categories__item" src="{{ asset('assets/img/thumbnail/thumbnail-1.jpg') }}"
-                                    alt="Shop Image">
+                                <img class="image__categories__item"
+                                    src="{{ asset('assets/img/thumbnail/thumbnail-1.jpg') }}" alt="Shop Image">
                                 <h5>Nyapi, Bandung</h5>
                             </div>
-                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i>  4.8     5rb++ rating</p>
+                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i> 4.8 5rb++ rating
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="categories__item">
                             <div class="">
-                                <img class="image__categories__item" src="{{ asset('assets/img/thumbnail/thumbnail-2.jpg') }}"
-                                    alt="Shop Image">
+                                <img class="image__categories__item"
+                                    src="{{ asset('assets/img/thumbnail/thumbnail-2.jpg') }}" alt="Shop Image">
                                 <h5>Nyapi, Bandung</h5>
                             </div>
-                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i>  4.8     5rb++ rating</p>
+                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i> 4.8 5rb++ rating
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="categories__item">
                             <div class="">
-                                <img class="image__categories__item" src="{{ asset('assets/img/thumbnail/thumbnail-3.jpeg') }}"
-                                    alt="Shop Image">
+                                <img class="image__categories__item"
+                                    src="{{ asset('assets/img/thumbnail/thumbnail-3.jpeg') }}" alt="Shop Image">
                                 <h5>Nyapi, Bandung</h5>
                             </div>
-                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i>  4.8     5rb++ rating</p>
+                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i> 4.8 5rb++ rating
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="categories__item">
                             <div class="">
-                                <img class="image__categories__item" src="{{ asset('assets/img/thumbnail/thumbnail-1.jpg') }}"
-                                    alt="Shop Image">
+                                <img class="image__categories__item"
+                                    src="{{ asset('assets/img/thumbnail/thumbnail-1.jpg') }}" alt="Shop Image">
                                 <h5>Nyapi, Bandung</h5>
                             </div>
-                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i>  4.8     5rb++ rating</p>
+                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i> 4.8 5rb++ rating
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="categories__item">
                             <div class="">
-                                <img class="image__categories__item" src="{{ asset('assets/img/thumbnail/thumbnail-2.jpg') }}"
-                                    alt="Shop Image">
+                                <img class="image__categories__item"
+                                    src="{{ asset('assets/img/thumbnail/thumbnail-2.jpg') }}" alt="Shop Image">
                                 <h5>Nyapi, Bandung</h5>
                             </div>
-                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i>  4.8     5rb++ rating</p>
+                            <p><i class="fa fa-star" aria-hidden="true" style="color: yellow"></i> 4.8 5rb++ rating
+                            </p>
                         </a>
                     </div>
                 </div>
@@ -391,55 +320,7 @@
     <!-- Blog Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row justify-content-around">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.html"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 112-116 Dipatiukur Street</li>
-                            <li>Phone: +62 821-1123-1234</li>
-                            <li>Email: hello@mahasiswa.unikom.ac.id</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text">
-                            <p>
-                                Copyright &copy;2024 By Team 9 Codelabs
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </footer>
+    <x-footer />
     <!-- Footer Section End -->
 </body>
 

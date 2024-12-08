@@ -11,6 +11,10 @@ Route::get('/dash', function () {
     return view('dashboard');
 });
 
+Route::get('/detail', function () {
+    return view('shop-detail');
+});
+
 Route::get('/role', function () {
     return view('role');
 });
