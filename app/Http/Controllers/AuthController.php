@@ -82,7 +82,9 @@ class AuthController extends Controller
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
 
-            if(Auth::check() && Auth::user()->id_role = 3){
+            if(Auth::check() && Auth::user()->id_role == 2){
+                return redirect()->route('view.index');
+            }else if(Auth::check() && Auth::user()->id_role == 3){
                 if(Auth::user()->toko){
                     return redirect()->route('view.toko');
                 }else {
