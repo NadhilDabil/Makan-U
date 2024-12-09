@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [AuthController::class, 'viewIndex'])->name('view.index');
 
+Route::get('/detail', function () {
+    return view('shop-detail');
+});
+
 Route::get('/role', function () {
     return view('role');
 });
