@@ -21,19 +21,12 @@
         <div class="content__section d-flex justify-content-center align-items-center min-vh-100">
             <div class="login shadow-sm  bg-white">
                 <div class="title__text text-center">
-                    <h2>LOGIN</h2>
+                    <h2>Masuk Sebagai</h2>
                 </div>
-                <form>
-                    <x-input-field name="username" type="text" placeholder="Enter Your Name here" id="name" />
-                    <x-input-field name="mobile" type="number" placeholder="Enter Your Mobile Number" label='Mobile Number' />
-                    <x-input-field name="email" type="email" placeholder="Enter Your Email here" />
-                    <x-input-field name="password" type="password" placeholder="Please Enter Your Password here" />
-                    <x-input-field name="confirm" type="password" placeholder="Please Confirm Your Password" label='Confirm Password' />
-                    <x-input-field name="shopName" type="text" placeholder="Please Enter Your Shop Name here" label='Shop Name' />
-
-                    <button type="submit" class="btn btn-primary w-100">Sign Up</button>
-                </form>
-                <p class="register__text">if you already have an account?  <a href="">Login Now</a></p>
+                <div class="choose__role">
+                    <button class="btn btn-warning choose__btn" onclick="window.location='{{ route('view.register.mahasiswa') }}'">Mahasiswa</button>
+                    <button class="btn btn-primary choose__btn" onclick="window.location='{{ route('view.register.penjual') }}'">Penjual</button>
+                </div>
             </div>
         </div>
     </div>

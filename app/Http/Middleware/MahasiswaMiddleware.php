@@ -17,7 +17,6 @@ class MahasiswaMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->id_role == 2) {
-            dd("Anda Masuk Halaman Mahasiswa");
             return $next($request);
         }
         abort(402);

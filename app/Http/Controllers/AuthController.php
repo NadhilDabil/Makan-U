@@ -10,9 +10,13 @@ class AuthController extends Controller
 {
     public function viewIndex()
     {
-        return view('index');
+        return view('dashboard');
     }
 
+
+    public function viewRegister(){
+        return view('register/role');
+    }
 
 
     public function indexMahasiswa()
@@ -20,9 +24,7 @@ class AuthController extends Controller
         return view('register/register-mahasiswa');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function storeMahasiswa(request $request)
     {
         $validatedData = $request->validate([
@@ -79,8 +81,15 @@ class AuthController extends Controller
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
-            // dd(Auth::user());
-            // dd(session()->all());
+
+            if(Auth::check() && Auth::user()->id_role = 3){
+                if(Auth::user()->toko){
+                    return redirect()->route('view.toko');
+                }else {
+                    return redirect()->route('view.form.penjual');
+                }
+            }
+
             return redirect()->route('view.index');
         } else {
             return redirect()->back()->with('error', 'GAGAL LOGIN');
